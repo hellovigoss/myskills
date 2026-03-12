@@ -1,0 +1,29 @@
+{
+  "skill_name": "electron-remote-debugging",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "帮我 remote debug 一下这个 Electron 应用。问题只出现在实际运行时：开发环境看起来能启动，但窗口里是空白的。请不要一上来就改代码，先确认当前运行的 Electron、dev server、以及真正加载的源码目录。",
+      "expected_output": "The skill should prioritize live process inspection, runtime path verification, and avoid speculative fixes before identifying the loaded app tree.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "这个 Electron 项目在 packaged app 里启动后主进程没崩，但 renderer 没有正常显示。请从 remote debugging 角度排查到底是主进程、preload、IPC、renderer 还是资源加载链路的问题。",
+      "expected_output": "The skill should break the app into runtime boundaries and gather evidence to isolate the failing layer before suggesting a fix.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "我改了 Electron 项目的代码以后，npm run dev 跑起来却完全没变化。请按 live app 调试方式帮我确认是 HMR 没生效、改错目录、还是实际运行的不是我以为的那份代码。",
+      "expected_output": "The skill should explicitly investigate HMR, process args, build/dev-server paths, and path mismatches such as worktree vs main repo or source vs build artifacts.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Electron 应用里某个功能只有点击按钮后才卡死或没响应，静态看代码看不出来。请用 remote debugging 的思路定位是前端事件、IPC 请求、主进程处理，还是外部子进程/服务调用出了问题。",
+      "expected_output": "The skill should trace the runtime request flow across renderer, IPC, main process, and external dependencies, using evidence to find the blocking boundary.",
+      "files": []
+    }
+  ]
+}
